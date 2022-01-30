@@ -2522,8 +2522,6 @@ country_event = {
 					NOR = {
 						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_aet1
-					}
-					NOR = {
 						has_global_flag = giga_core_aeternum_2
 						has_global_flag = giga_core_aeternum_3
 					}

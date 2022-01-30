@@ -5,8 +5,8 @@ is_valid_yggdrasil_food_beggar = {
 	NOR = {
 		is_rival = ROOT
 		is_at_war_with = ROOT
+		has_modifier = yggdrasil_food_share_recipient
 	}
-	NOT = { has_modifier = yggdrasil_food_share_recipient }
 	opinion = {
 		who = ROOT
 		value > -100

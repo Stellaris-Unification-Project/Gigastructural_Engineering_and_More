@@ -1446,8 +1446,6 @@ country_event = {
 				NOR = {
 					has_global_flag = gotta_respawn_blokkat_mothership
 					has_global_flag = blokkat_mothership_shield_down
-				}
-				NOR = {
 					has_global_flag = blokkat_mothership_killed_legit
 					has_global_flag = blokkat_crisis_defeated
 				}

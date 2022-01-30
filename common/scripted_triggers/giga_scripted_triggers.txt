@@ -7,8 +7,8 @@ ndb_can_target_system = {
 	NOR = {
 		is_star_class = sc_black_hole
 		has_star_flag = blokkat_system_being_stripmined
+		has_star_flag = blokkat_stripmined_system
 	}
-	NOT = { has_star_flag = blokkat_stripmined_system }
 	NOT = { any_fleet_in_system = { owner = { is_country_type = blokkat_stripminers } } }
 	NOT = { any_ship_in_system = { is_ship_size = precursor_colossus } }
 	NOT = { any_ship_in_system = { is_ship_size = sofe_ancient_weapon } }

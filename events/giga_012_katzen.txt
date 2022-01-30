@@ -8911,8 +8911,6 @@ country_event = { #Collapse of Katzenartig
 					NOR = {
 						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_kaiser1
-					}
-					NOR = {
 						has_global_flag = katzenartig_deathwish
 						has_global_flag = katzenartig_stellarite
 						has_global_flag = katzenartig_improbable
