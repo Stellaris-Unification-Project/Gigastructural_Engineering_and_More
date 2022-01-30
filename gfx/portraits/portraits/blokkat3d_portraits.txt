@@ -363,8 +363,10 @@ portrait_groups = {
 		leader = {
 			add = {
 				trigger = {
-					not = { has_leader_flag = unique_blokkat_leader }
-					not = { has_leader_flag = blokkat_is_angry }
+					NOR = {
+						has_leader_flag = unique_blokkat_leader
+						has_leader_flag = blokkat_is_angry
+					}
 				}
 				portraits = {
 					blokkat3d_red

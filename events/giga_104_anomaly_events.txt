@@ -523,10 +523,10 @@ ship_event = {
 				}
 
 				# End the solution chain for everyone else, as soon as anyone gets here
-				every_country = {
+				every_playable_country = {
 					limit = {
 						has_event_chain = compound_solution_chain
-						NOT = { is_same_value = root.owner }
+						NOT = { is_same_empire = root.owner }
 					}
 					end_event_chain = compound_solution_chain
 				}

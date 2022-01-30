@@ -175,7 +175,7 @@ ehof_move_fleet_to_ehof = {
         	limit = {
         		can_use_ehof = yes
         		exists = owner
-        		owner = { is_same_value = root.owner }
+        		is_owned_by = root.owner
         	}
         	clear_orders = yes
         	set_fleet_flag = ehof_ready_for_travel@root.owner
@@ -245,7 +245,7 @@ ehof_start_lifecycle = {
     }
 }
 
-ehof_recount_ships = {
+ehof_recount_fleet_in_system = {
 
      # save ehof system as event target
      ehof_mega_system = yes
@@ -265,7 +265,7 @@ ehof_recount_ships = {
          	limit = {
          		can_use_ehof = yes
          		exists = owner
-         		owner = { is_same_value = root.owner }
+         		is_owned_by = root.owner
          	}
 
             if = { limit = { is_ship_size = science }						owner = { change_variable = { which = ehof_pre_flight_science value = 1 } } }

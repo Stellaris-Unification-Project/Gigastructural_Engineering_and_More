@@ -555,15 +555,13 @@ country_event = { #blast
 							every_country = {
 								limit = {
 									NOR = {
-										is_same_value = prev.owner
+										is_same_empire = prev.owner
 										is_country_type = primitive
 										has_overlord = root
 										has_defensive_pact = root
 										is_country = root
 										is_in_federation_with = root
-										has_valid_civic = civic_fanatic_purifiers
-										has_valid_civic = civic_hive_devouring_swarm
-										has_valid_civic = civic_machine_terminator
+										is_homicidal = yes
 									}
 								}
 								add_opinion_modifier = { who = root modifier = opinion_broke_planet }
@@ -574,15 +572,13 @@ country_event = { #blast
 							every_country = {
 								limit = {
 									NOR = {
-										is_same_value = prev.owner
+										is_same_empire = prev.owner
 										is_country_type = primitive
 										has_overlord = root
 										has_defensive_pact = root
 										is_country = root
 										is_in_federation_with = root
-										has_valid_civic = civic_fanatic_purifiers
-										has_valid_civic = civic_hive_devouring_swarm
-										has_valid_civic = civic_machine_terminator
+										is_homicidal = yes
 									}
 								}
 								add_opinion_modifier = { who = root modifier = opinion_broke_empty_planet }
@@ -859,8 +855,7 @@ country_event = { #target locked
 			random_owned_ship = {
 				limit = { is_ship_size = quasi_stellar_calibrator }
 				solar_system = {
-					random_system_planet = {
-						limit = { is_star = yes }
+					star = {
 						save_global_event_target_as = quasi_stellar_fleet_target
 					}
 				}
@@ -1299,15 +1294,13 @@ country_event = {
 							every_country = {
 								limit = {
 									NOR = {
-										is_same_value = prev.owner
+										is_same_empire = prev.owner
 										is_country_type = primitive
 										has_overlord = root
 										has_defensive_pact = root
 										is_country = root
 										is_in_federation_with = root
-										has_valid_civic = civic_fanatic_purifiers
-										has_valid_civic = civic_hive_devouring_swarm
-										has_valid_civic = civic_machine_terminator
+										is_homicidal = yes
 									}
 								}
 								add_opinion_modifier = { who = root modifier = opinion_broke_system }
@@ -1318,15 +1311,13 @@ country_event = {
 							every_country = {
 								limit = {
 									NOR = {
-										is_same_value = prev.owner
+										is_same_empire = prev.owner
 										is_country_type = primitive
 										has_overlord = root
 										has_defensive_pact = root
 										is_country = root
 										is_in_federation_with = root
-										has_valid_civic = civic_fanatic_purifiers
-										has_valid_civic = civic_hive_devouring_swarm
-										has_valid_civic = civic_machine_terminator
+										is_homicidal = yes
 									}
 								}
 								add_opinion_modifier = { who = root modifier = opinion_broke_empty_system }
@@ -1447,7 +1438,7 @@ country_event = {
 			set_asteroid_belt = { radius = 0 }
 			every_neighbor_system = { remove_hyperlane = { from = prev to = this } }
 			every_fleet_in_system = {
-				limit = { owner = { NOT = { is_immune_to_giga_hyperweapon = yes } } } 
+				limit = { owner = { is_immune_to_giga_hyperweapon = no } } 
 				destroy_fleet = this 
 			}
 			giga_remove_system_debris = yes
@@ -1475,12 +1466,12 @@ planet_event = { #planet destroyed
 	is_triggered_only = yes
 
 	immediate = {
-		if = {		limit = { has_planet_flag = machine_world_1 } every_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.1 } }
-		else_if = {	limit = { has_planet_flag = machine_world_2 } every_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.2 } }
-		else_if = {	limit = { has_planet_flag = machine_world_3 } every_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.3 } }
-		else_if = {	limit = { has_planet_flag = machine_world_4 } every_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.4 } }
+		if = {		limit = { has_planet_flag = machine_world_1 } every_playable_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.1 } }
+		else_if = {	limit = { has_planet_flag = machine_world_2 } every_playable_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.2 } }
+		else_if = {	limit = { has_planet_flag = machine_world_3 } every_playable_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.3 } }
+		else_if = {	limit = { has_planet_flag = machine_world_4 } every_playable_country = { limit = { has_event_chain = "ai_crisis_chain" } remove_point_of_interest = ai_crisis_poi.4 } }
 
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "ai_crisis_chain" }
 			add_event_chain_counter = {
 				event_chain = "ai_crisis_chain"
@@ -1561,7 +1552,7 @@ planet_event = { #planet destroyed
 						remove_modifier = "ship_ghost_signal_4"
 					}
 				}
-				every_country = {
+				every_playable_country = {
 					limit = { has_special_project = AI_CRISIS_PROJECT }
 					abort_special_project = { type = AI_CRISIS_PROJECT }
 				}
@@ -1682,11 +1673,11 @@ planet_event = {
 				remove_modifier = "ship_ghost_signal_1"
 			}
 		}
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "ai_crisis_chain" }
 			end_event_chain = "ai_crisis_chain"
 		}
-		every_country = {
+		every_playable_country = {
 			limit = { has_special_project = SYNTH_INFILTRATION_PROJECT }
 			abort_special_project = { type = SYNTH_INFILTRATION_PROJECT }
 		}
@@ -2005,11 +1996,7 @@ country_event = {
 		}
 		else_if = { # player is genocidal
 			limit = {
-				OR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 				NOR = { #cant happen twice
 					has_global_flag = galactic_pact_formed
 					has_global_flag = galactic_hyperstate_formed
@@ -2125,11 +2112,7 @@ country_event = {
 		}
 		else_if = { # player is genocidal
 			limit = {
-				OR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 				NOR = { #cant happen twice
 					has_global_flag = galactic_pact_formed
 					has_global_flag = galactic_hyperstate_formed
@@ -2255,9 +2238,7 @@ country_event = { #at this point, the hyperweapon is actually being constructed,
 						has_defensive_pact = root
 						is_country = root
 						is_in_federation_with = root
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_machine_terminator
+						is_homicidal = yes
 					}
 					ehof_default_country = yes
 					is_ai = yes
@@ -2289,9 +2270,7 @@ country_event = { #at this point, the hyperweapon is actually being constructed,
 			else_if = { # player is genocidal
 				limit = {
 					OR = {
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_machine_terminator
+						is_homicidal = yes
 					}
 					NOR = { #cant happen twice
 						has_global_flag = galactic_pact_formed
@@ -2419,9 +2398,7 @@ country_event = {
 					is_country_type = extradimensional
 					is_country_type = extradimensional_2
 					is_country_type = extradimensional_3
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 				}
 				ehof_default_country = yes
 				is_ai = yes
@@ -2569,9 +2546,7 @@ country_event = {
 					is_country_type = extradimensional
 					is_country_type = extradimensional_2
 					is_country_type = extradimensional_3
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 				}
 				ehof_default_country = yes
 				is_ai = yes
@@ -2584,20 +2559,16 @@ country_event = {
 			limit = {
 				any_country = {
 					has_country_flag = giga_galactic_pact_member
-					OR = {
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
-					}
+					
+						is_fallen_empire = yes
 					NOT = { has_ethic = ethic_fanatic_xenophobe }
 				}
 			}
 			random_country = {
 				limit = {
 					has_country_flag = giga_galactic_pact_member
-					OR = {
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
-					}
+					
+						is_fallen_empire = yes
 					NOT = { has_ethic = ethic_fanatic_xenophobe }
 				}
 				remove_country_flag = giga_galactic_pact_member
@@ -2821,11 +2792,7 @@ country_event = {
 						value = pathetic
 					}
 				}
-				OR = {
-					has_valid_civic = civic_machine_terminator
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-				}
+				is_homicidal = yes
 				is_ai = yes
 			}
 			country_event = { id = giga_fed.4005 days = 30 }

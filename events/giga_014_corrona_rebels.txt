@@ -445,7 +445,7 @@ country_event = { #check for systems the Kaiser cannot access
 						is_megastructure_type = kaiser_ehof_1
 					}
 				}
-				any_country = {
+				any_playable_country = {
 					is_ai = no
 					any_system_within_border = {
 						NOT = { has_star_flag = maginot_anti_jump_star }
@@ -493,7 +493,7 @@ country_event = { #check for systems the Kaiser cannot access
 						is_megastructure_type = kaiser_ehof_1
 					}
 				}
-				any_country = {
+				any_playable_country = {
 					is_ai = no
 					is_at_war_with = event_target:flusion_primitives_country
 				}
@@ -508,7 +508,7 @@ country_event = { #check for systems the Kaiser cannot access
 					value = 0
 				}
 			}
-			random_country = {
+			random_playable_country = {
 				limit = {
 					is_ai = no
 					is_at_war_with = event_target:flusion_primitives_country
@@ -517,7 +517,7 @@ country_event = { #check for systems the Kaiser cannot access
 					limit = {
 						NOR = {
 							has_star_flag = maginot_anti_jump_star
-							any_system_planet = { is_capital = yes }
+							is_capital_system = yes
 							any_system_megastructure = { is_megastructure_type = katzen_ehof_wormhole }
 						}
 					}
@@ -1593,49 +1593,49 @@ event = { #yearly wary
 					decrease_katzen_wary = yes
 					modifier = {
 						add = 10
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_1
 						}
 					}
 					modifier = {
 						add = 20
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_2
 						}
 					}
 					modifier = {
 						add = 30
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_3
 						}
 					}
 					modifier = {
 						add = 40
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_4
 						}
 					}
 					modifier = {
 						add = -10
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_1
 						}
 					}
 					modifier = {
 						add = -20
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_2
 						}
 					}
 					modifier = {
 						add = -30
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_3
 						}
@@ -1644,49 +1644,49 @@ event = { #yearly wary
 				90 = {
 					modifier = {
 						add = -10
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_1
 						}
 					}
 					modifier = {
 						add = -20
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_2
 						}
 					}
 					modifier = {
 						add = -30
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_3
 						}
 					}
 					modifier = {
 						add = -40
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_happy_4
 						}
 					}
 					modifier = {
 						add = 10
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_1
 						}
 					}
 					modifier = {
 						add = 20
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_2
 						}
 					}
 					modifier = {
 						add = 30
-						any_country = {
+						any_playable_country = {
 							is_ai = no
 							has_country_flag = kaiser_angry_3
 						}
@@ -7864,11 +7864,7 @@ country_event = {
 					any_owned_pop = {
 						is_same_species = event_target:arcticezics
 					}
-					NOR = {
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_machine_terminator
-					}
+					is_homicidal = no
 				}
 				country_event = { id = giga_katrebels.1002 days = 20 }
 			}
@@ -7903,10 +7899,10 @@ country_event = { #ezics leave
 			event_target:ezic_rebels_country = {
 				every_system_within_border = {
 					limit = {
-						any_system_planet = { is_colony = yes owner = { is_country = event_target:ezic_rebels_country } }
+						any_system_planet = { is_colony = yes is_owned_by = event_target:ezic_rebels_country }
 					}
 					random_system_planet = {
-						limit = { is_colony = yes owner = { is_country = event_target:ezic_rebels_country } }
+						limit = { is_colony = yes is_owned_by = event_target:ezic_rebels_country }
 						create_katzen_splinter_state = yes
 						solar_system = { starbase = { set_owner = PREVPREV.owner } }
 					}
@@ -8655,7 +8651,7 @@ country_event = { #UFS gets FTL
 									if = {
 										limit = {
 											exists = starbase
-											starbase = { owner = { is_country = event_target:ufs_ai_systems } }
+											starbase = { is_owned_by = event_target:ufs_ai_systems }
 										}
 										starbase = { set_owner = event_target:flusion_primitives_country }
 									}
@@ -8813,7 +8809,7 @@ country_event = {
 		event_target:giga_jublio_system = {
 			every_neighbor_system = {
 				limit = {
-					owner = { is_country = ROOT }
+					is_owned_by = ROOT
 				}
 				set_star_flag = flusion_claimed
 				add_claims = {
@@ -8823,7 +8819,7 @@ country_event = {
 				}
 				every_neighbor_system = {
 					limit = {
-						owner = { is_country = ROOT }
+						is_owned_by = ROOT
 						NOT = { has_star_flag = flusion_claimed }
 					}
 					set_star_flag = flusion_claimed
@@ -8834,7 +8830,7 @@ country_event = {
 					}
 					every_neighbor_system = {
 						limit = {
-							owner = { is_country = ROOT }
+							is_owned_by = ROOT
 							NOT = { has_star_flag = flusion_claimed }
 						}
 						set_star_flag = flusion_claimed
@@ -8993,10 +8989,7 @@ country_event = {
 								has_planet_flag = gigaflusion
 							}
 						}
-						NOR = {
-							has_ethic = ethic_fanatic_authoritarian
-							has_ethic = ethic_authoritarian
-						}
+						is_authoritarian = no
 					}
 				}
 				force_remove_civic = civic_laurandar_aaron
@@ -9392,7 +9385,7 @@ country_event = {
 # 		event_target:giga_jublio_system = {
 # 			every_neighbor_system = {
 # 				limit = {
-# 					owner = { is_country = ROOT }
+# 					is_owned_by = ROOT
 # 				}
 # 				set_star_flag = flusion_claimed
 # 				add_claims = {
@@ -9402,7 +9395,7 @@ country_event = {
 # 				}
 # 				every_neighbor_system = {
 # 					limit = {
-# 						owner = { is_country = ROOT }
+# 						is_owned_by = ROOT
 # 						NOT = { has_star_flag = flusion_claimed }
 # 					}
 # 					set_star_flag = flusion_claimed
@@ -9413,7 +9406,7 @@ country_event = {
 # 					}
 # 					every_neighbor_system = {
 # 						limit = {
-# 							owner = { is_country = ROOT }
+# 							is_owned_by = ROOT
 # 							NOT = { has_star_flag = flusion_claimed }
 # 						}
 # 						set_star_flag = flusion_claimed
@@ -9424,7 +9417,7 @@ country_event = {
 # 						}
 # 						every_neighbor_system = {
 # 							limit = {
-# 								owner = { is_country = ROOT }
+# 								is_owned_by = ROOT
 # 								NOT = { has_star_flag = flusion_claimed }
 # 							}
 # 							set_star_flag = flusion_claimed
@@ -9435,7 +9428,7 @@ country_event = {
 # 							}
 # 							every_neighbor_system = {
 # 								limit = {
-# 									owner = { is_country = ROOT }
+# 									is_owned_by = ROOT
 # 									NOT = { has_star_flag = flusion_claimed }
 # 								}
 # 								set_star_flag = flusion_claimed

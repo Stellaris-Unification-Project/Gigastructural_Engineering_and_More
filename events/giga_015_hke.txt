@@ -18,9 +18,7 @@ country_event = { #summon HKE
 					is_country_type = ehof_traders
 					is_country_type = compound_empire
 					is_country_type = creators
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 					has_ethic = ethic_fanatic_xenophobe
 					is_subject = yes
 					has_federation = yes
@@ -838,7 +836,7 @@ country_event = { #HKE REFEDERATES
 			every_planet_within_border = {
 				limit = {
 					is_colony = yes
-					owner = { is_country = event_target:hke_federated_country }
+					is_owned_by = event_target:hke_federated_country
 				}
 				katzen_clear_capitals = yes
 				add_building = building_giga_katzen_capital
@@ -917,7 +915,7 @@ country_event = { #info
 			limit = { #they got flusion, make it capital
 				event_target:gigaflusion = {
 					is_colony = yes
-					owner = { is_country = event_target:hke_federated_country }
+					is_owned_by = event_target:hke_federated_country
 				}
 			}
 			event_target:gigaflusion = {
@@ -928,7 +926,7 @@ country_event = { #info
 			limit = { #they got flusion but it got blown up, move capital to other planet in Jublio
 				event_target:gigaflusion = {
 					is_colony = no
-					space_owner = { is_country = event_target:hke_federated_country }
+					is_owned_by = event_target:hke_federated_country
 					solar_system = { any_system_planet = { is_colony = yes } }
 				}
 			}
@@ -984,7 +982,7 @@ country_event = { #info
 		}
 		if = { #no wars with player, this is buildup
 			limit = {
-				any_country = {
+				any_playable_country = {
 					is_ai = no
 					is_at_war_with = event_target:hke_federated_country
 				}

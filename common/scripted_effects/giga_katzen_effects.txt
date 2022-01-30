@@ -83,7 +83,7 @@ increase_kaiser_opinion = {
 	else_if = {
 		limit = {
 			has_country_flag = kaiser_angry_1
-			NOT = { katzen_is_genocidal = yes }
+			katzen_is_genocidal = no
 		}
 		remove_country_flag = kaiser_angry_1
 		set_country_flag = kaiser_neutral
@@ -91,7 +91,7 @@ increase_kaiser_opinion = {
 	else_if = {
 		limit = {
 			has_country_flag = kaiser_neutral
-			NOT = { katzen_is_genocidal = yes }
+			katzen_is_genocidal = no
 		}
 		remove_country_flag = kaiser_neutral
 		set_country_flag = kaiser_happy_1
@@ -99,7 +99,7 @@ increase_kaiser_opinion = {
 	else_if = {
 		limit = {
 			has_country_flag = kaiser_happy_1
-			NOT = { katzen_is_genocidal = yes }
+			katzen_is_genocidal = no
 		}
 		remove_country_flag = kaiser_happy_1
 		set_country_flag = kaiser_happy_2
@@ -107,7 +107,7 @@ increase_kaiser_opinion = {
 	else_if = {
 		limit = {
 			has_country_flag = kaiser_happy_2
-			NOT = { katzen_is_genocidal = yes }
+			katzen_is_genocidal = no
 		}
 		remove_country_flag = kaiser_happy_2
 		set_country_flag = kaiser_happy_3
@@ -115,7 +115,7 @@ increase_kaiser_opinion = {
 	else_if = {
 		limit = {
 			has_country_flag = kaiser_happy_3
-			NOT = { katzen_is_genocidal = yes }
+			katzen_is_genocidal = no
 		}
 		remove_country_flag = kaiser_happy_3
 		set_country_flag = kaiser_happy_4

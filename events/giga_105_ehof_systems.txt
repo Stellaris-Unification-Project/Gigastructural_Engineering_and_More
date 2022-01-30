@@ -2359,8 +2359,7 @@ country_event = {
 							set_star_flag = ruined_accelerator_system
 							giga_field_system_debris = yes
 
-							random_system_planet = {
-								limit = { is_star = yes }
+							star = {
 								set_planet_flag = has_giga
 								set_planet_flag = has_megastructure
 								save_event_target_as = spawn_giga_ruined_accelerator
@@ -4623,8 +4622,7 @@ country_event = {
 							set_star_flag = hostile_system
 
 							create_cloud_country = yes
-							random_system_planet = {
-								limit = { is_star = yes }
+							star = {
 								set_deposit = d_energy_2
 								event_target:cloud_country = {
 									set_aggro_range = 500

@@ -39,8 +39,7 @@ giga_fe_mega_xenophobe_neutron_star = {
 				}
 			}
 		}
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			solar_system = {
 				random_list = {
 					2 = {
@@ -240,8 +239,7 @@ giga_fe_mega_pouchkinn_matrioskha_brain = {
 				}
 			}
 		}
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			solar_system = {
 				spawn_megastructure = {
 					type = matrioshka_brain_5_o_star

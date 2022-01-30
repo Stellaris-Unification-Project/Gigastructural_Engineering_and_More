@@ -1342,10 +1342,7 @@ country_event = {
 			add_resource = { influence = -200 }
 		}
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 
@@ -1371,10 +1368,7 @@ country_event = {
 			add_resource = { influence = 200 }
 		}
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 
@@ -1383,11 +1377,7 @@ country_event = {
 		custom_tooltip = "giga_flavor_systems.2007.exterminator.tooltip"
 		add_resource = { influence = 200 }
 		trigger = {
-			OR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = yes
 		}
 	}
 
@@ -1401,13 +1391,9 @@ country_event = {
 		}
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_xenophile = yes
+				is_xenophobe = yes
+				is_homicidal = yes
 			}
 		}
 	}
@@ -2036,7 +2022,7 @@ country_event = {
 			event_target:giga_eaw_system = {
 				any_neighbor_system = {
 					exists = starbase
-					starbase = { owner = { is_country = ROOT } }
+					starbase = { is_owned_by = ROOT }
 				}
 			}
 		}
@@ -2049,13 +2035,13 @@ country_event = {
 				every_neighbor_system = {
 					limit = {
 						exists = starbase
-						starbase = { owner = { is_country = ROOT } }
+						starbase = { is_owned_by = ROOT }
 					}
 					starbase = { set_owner = event_target:eaw_country }
 					every_system_planet = {
 						limit = {
 							is_colony = yes
-							owner = { is_country = ROOT }
+							is_owned_by = ROOT
 						}
 						set_owner = event_target:eaw_country
 					}

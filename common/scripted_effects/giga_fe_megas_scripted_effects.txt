@@ -124,8 +124,7 @@ spawn_materialist_fe_beacon_of_infinity = {
 	set_asteroid_belt = {
 		radius = 0
 	}
-	random_system_planet = {
-		limit = { is_star = yes }
+	star = {
 		set_planet_flag = has_megastructure
 	}
 
@@ -496,8 +495,7 @@ spawn_materialist_fe_beacon_of_stability = {
 	set_asteroid_belt = {
 		radius = 0
 	}
-	random_system_planet = {
-		limit = { is_star = yes }
+	star = {
 		set_planet_flag = has_megastructure
 	}
 
@@ -616,8 +614,7 @@ spawn_materialist_fe_beacon_of_perpetuity = {
 	set_asteroid_belt = {
 		radius = 0
 	}
-	random_system_planet = {
-		limit = { is_star = yes }
+	star = {
 		set_planet_flag = has_megastructure
 	}
 
@@ -680,8 +677,7 @@ spawn_materialist_fe_gaming_food_center = {
 	set_asteroid_belt = {
 		radius = 0
 	}
-	random_system_planet = {
-		limit = { is_star = yes }
+	star = {
 		set_planet_flag = has_megastructure
 	}
 

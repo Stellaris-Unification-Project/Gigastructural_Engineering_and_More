@@ -248,7 +248,7 @@ ehof_hyperlane_eligible = {
 	OR = {
 		any_fleet_in_system = {
 			exists = owner
-			owner = { is_same_value = root }
+			is_owned_by = root
 		}
 		empire_has_visited = yes
 	}

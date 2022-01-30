@@ -313,7 +313,7 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = { is_ai = no }
 			capital_scope = {
 				solar_system = {
@@ -473,7 +473,7 @@ event = {
 				destroy_ambient_object = THIS
 			}
 			every_system_megastructure = {
-				limit = { NOT = { mega_blokkats_wont_stripmine = yes } }
+				limit = { mega_blokkats_wont_stripmine = no }
 				remove_megastructure = THIS
 			}
 			every_fleet_in_system = {
@@ -1066,7 +1066,7 @@ country_event = {
 	immediate = {
 		if = {
 			limit = { NOT = { has_global_flag = blokkat_crisis_defeated } }
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_blokkat.6001 }
 			}
@@ -1114,7 +1114,7 @@ country_event = {
 				destroy_country = yes
 			}
 			every_megastructure = {
-				limit = { NOT = { mega_blokkats_wont_stripmine = yes } }
+				limit = { mega_blokkats_wont_stripmine = no }
 				remove_megastructure = THIS
 			}
 			event_target:paluushia = {
@@ -1164,7 +1164,7 @@ country_event = {
 			destroy_country = yes
 		}
 		every_megastructure = {
-			limit = { NOT = { mega_blokkats_wont_stripmine = yes } }
+			limit = { mega_blokkats_wont_stripmine = no }
 			remove_megastructure = THIS
 		}
 		event_target:paluushia = {
@@ -1190,7 +1190,7 @@ country_event = {
 				has_global_flag = blokkat_bureau_popup
 				NOT = { has_global_flag = blokkat_crisis_defeated }
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				if = {
 					limit = { NOT = { has_country_flag = blokkat_bureau_unlocked } }
@@ -1215,7 +1215,7 @@ country_event = {
 					set_owner = event_target:global_event_country
 				}
 				every_ship_in_system = {
-					limit = { owner = { is_country = event_target:global_event_country } }
+					limit = { is_owned_by = event_target:global_event_country }
 					destroy_ship = THIS
 				}
 			}
@@ -1224,13 +1224,13 @@ country_event = {
 			limit = {
 				NOT = { has_global_flag = blokkat_crisis_defeated }
 				OR = {
-					NOT = { any_system = { NOT = { systems_blokkats_wont_stripmine = yes } } }
+					NOT = { any_system = { systems_blokkats_wont_stripmine = no } }
 					has_global_flag = blokkats_ate_most_of_galaxy
 				}
 				NOT = { has_global_flag = blokkat_vester_gonna_destroy_galaxy }
 			}
 			set_global_flag = blokkat_vester_gonna_destroy_galaxy
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_blokkat.6000 }
 			}
@@ -1443,10 +1443,14 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_flag = gotta_respawn_blokkat_mothership }
-				NOT = { has_global_flag = blokkat_mothership_shield_down }
-				NOT = { has_global_flag = blokkat_mothership_killed_legit }
-				NOT = { has_global_flag = blokkat_crisis_defeated }
+				NOR = {
+					has_global_flag = gotta_respawn_blokkat_mothership
+					has_global_flag = blokkat_mothership_shield_down
+				}
+				NOR = {
+					has_global_flag = blokkat_mothership_killed_legit
+					has_global_flag = blokkat_crisis_defeated
+				}
 				OR = {
 					NOT = { any_owned_fleet = { has_fleet_flag = blokkat_mothership_fleet } }
 					event_target:blokkat_mothership_ship = {
@@ -1493,7 +1497,7 @@ country_event = {
 				limit = { exists = event_target:blokkat_mothership_escort_fleet }
 				event_target:blokkat_mothership_escort_fleet = { destroy_fleet = THIS }
 			}
-			random_country = {
+			random_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_blokkat.1030 }
 			}
@@ -2279,7 +2283,7 @@ country_event = {
 
 	immediate = {
 		set_global_flag = blokkat_bureau_fallback
-		every_country = {
+		every_playable_country = {
 			limit = { is_ai = no }
 			if = {
 				limit = { NOT = { has_country_flag = blokkat_bureau_unlocked } }
@@ -2483,8 +2487,10 @@ planet_event = {
 				ROOT.owner = {
 					random_owned_planet = {
 						limit = {
-							NOT = { has_planet_flag = blokkat_evacuation_planet_blacklisted }
-							NOT = { is_planet = ROOT }
+							NOR = {
+								has_planet_flag = blokkat_evacuation_planet_blacklisted
+								is_planet = ROOT
+							}
 							is_colony = yes
 						}
 						save_event_target_as = blokkat_pop_resettle_target
@@ -2542,7 +2548,7 @@ country_event = {
 		save_global_event_target_as = country_killed_by_blokkats
 		if = {
 			limit = { is_country_type = default }
-			every_country = {
+			every_playable_country = {
 				limit = {
 					is_ai = no
 					NOT = {
@@ -2838,8 +2844,8 @@ country_event = {
 			remove_country_flag = blokkat_inquietude_taught
 			if = {
 				limit = {
-					NOT = { has_global_flag = giga_achievements_disabled }
-					NOT = {
+					NOR = {
+						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_blokkats1
 					}
 					has_global_flag = giga_blokkats_easy
@@ -2850,8 +2856,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_global_flag = giga_achievements_disabled }
-					NOT = {
+					NOR = {
+						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_blokkats2
 					}
 					has_global_flag = giga_blokkats_normal
@@ -2863,8 +2869,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_global_flag = giga_achievements_disabled }
-					NOT = {
+					NOR = {
+						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_blokkats3
 					}
 					has_global_flag = giga_blokkats_bismuth
@@ -2877,8 +2883,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_global_flag = giga_achievements_disabled }
-					NOT = {
+					NOR = {
+						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_achievement_blokkats4
 					}
 					has_global_flag = giga_blokkats_endtech
@@ -2892,8 +2898,8 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_global_flag = giga_achievements_disabled }
-					NOR = { 
+					NOR = {
+						has_global_flag = giga_achievements_disabled
 						has_country_flag = giga_blokkat_inquietude_above_10
 						has_country_flag = giga_achievement_blokkats7
 					}
@@ -3254,7 +3260,7 @@ country_event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = blokkat_chain }
 			add_event_chain_counter = {
 				event_chain = blokkat_chain
@@ -3333,8 +3339,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_flag = giga_achievements_disabled }
-				NOT = {
+				NOR = {
+					has_global_flag = giga_achievements_disabled
 					has_country_flag = giga_achievement_blokkats5
 				}
 				check_variable = {
@@ -3348,8 +3354,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_flag = giga_achievements_disabled }
-				NOT = {
+				NOR = {
+					has_global_flag = giga_achievements_disabled
 					has_country_flag = giga_achievement_blokkats6
 				}
 				check_variable = {
@@ -3363,8 +3369,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_flag = giga_achievements_disabled }
-				NOT = {
+				NOR = {
+					has_global_flag = giga_achievements_disabled
 					has_country_flag = giga_achievement_blokkats8
 				}
 				has_technology = giga_tech_blokkat_afterburner
@@ -4043,8 +4049,10 @@ country_event = {
 		trigger = {
 			has_country_flag = blokkat_mega_stage_3_researched
 			has_country_flag = unlocked_final_blokkat_mega_stage
-			NOT = { has_country_flag = blokkat_mega_stage_4_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_mega_stage_4_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3329 }
@@ -4113,8 +4121,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_mega_stage_1_researched
-			NOT = { has_country_flag = blokkat_mega_stage_2_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_mega_stage_2_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3064 }
@@ -4144,8 +4154,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_mega_stage_0_researched
-			NOT = { has_country_flag = blokkat_mega_stage_1_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_mega_stage_1_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3062 }
@@ -4181,8 +4193,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_shield_researched
-			NOT = { has_country_flag = blokkat_mega_stage_0_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_mega_stage_0_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3060 }
@@ -4239,10 +4253,10 @@ country_event = {
 		custom_tooltip = "giga_blokkat.3000.shield.tooltip"
 		custom_gui = blokkat_bureau_option
 		trigger = {
-			NOT = {
+			NOR = {
 				has_country_flag = blokkat_shield_researched
+				has_global_flag = blokkat_crisis_defeated
 			}
-			NOT = { has_global_flag = blokkat_crisis_defeated }
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3010 }
@@ -4270,8 +4284,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_shield_researched
-			NOT = { has_country_flag = blokkat_physics_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_physics_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3030 }
@@ -4293,8 +4309,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_shield_researched
-			NOT = { has_country_flag = blokkat_engineering_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_engineering_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3050 }
@@ -4316,8 +4334,10 @@ country_event = {
 		custom_gui = blokkat_bureau_option
 		trigger = {
 			has_country_flag = blokkat_shield_researched
-			NOT = { has_country_flag = blokkat_society_researched }
-			NOT = { has_global_flag = blokkat_crisis_defeated }
+			NOR = {
+				has_country_flag = blokkat_society_researched
+				has_global_flag = blokkat_crisis_defeated
+			}
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3020 }
@@ -4639,7 +4659,7 @@ country_event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = blokkat_chain }
 			add_event_chain_counter = {
 				event_chain = blokkat_chain
@@ -4949,7 +4969,7 @@ country_event = {
 			which = blokkat_knowledge_earned_by_paluush
 			value = 0
 		}
-		every_country = {
+		every_playable_country = {
 			limit = { has_special_project = ANALYZE_PALUUSH_SIGNAL }
 			abort_special_project = { type = ANALYZE_PALUUSH_SIGNAL }
 		}
@@ -5247,21 +5267,13 @@ country_event = {
 	title = "giga_blokkat.3309.name"
 	desc = {
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-			}
+			is_homicidal = no
 		}
 		text = "giga_blokkat.3309.desc"
 	}
 	desc = {
 		trigger = {
-			OR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-			}
+			is_homicidal = yes
 		}
 		text = "giga_blokkat.3309.descgeno"
 	}
@@ -5297,11 +5309,7 @@ country_event = {
 	option = { #kk
 		name = "giga_blokkat.3310.a"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-			}
+			is_homicidal = no
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3311 }
@@ -5312,11 +5320,7 @@ country_event = {
 		name = "giga_blokkat.3310.ageno"
 		custom_tooltip = "giga_blokkat.3310.ageno.tooltip"
 		trigger = {
-			OR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-			}
+			is_homicidal = yes
 		}
 		hidden_effect = {
 			country_event = { id = giga_blokkat.3311 }
@@ -5819,11 +5823,7 @@ country_event = {
 		remove_modifier = paluush_grandarchives_payment
 		remove_modifier = the_paluushian_exception
 		trigger = {
-			OR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-			}
+			is_homicidal = yes
 		}
 		hidden_effect = {
 			remove_country_flag = grand_archive_dig_ongoing
@@ -8711,10 +8711,10 @@ country_event = {
 				fail_text = "blokkat_prison_already_doing_this"
 				event_target:blokkat_prison_being_managed = {
 					NOT = { 
-						AND = { 
-							NOT = { has_megastructure_flag = boosting_blokkat_physics }
-							NOT = { has_megastructure_flag = boosting_blokkat_society }
-							NOT = { has_megastructure_flag = boosting_blokkat_engineering }
+						NOR = {
+							has_megastructure_flag = boosting_blokkat_physics 
+							has_megastructure_flag = boosting_blokkat_society 
+							has_megastructure_flag = boosting_blokkat_engineering 
 						}
 					}
 				}
@@ -9586,7 +9586,7 @@ event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = { is_ai = no }
 			country_event = { id = giga_blokkat.6607 days = 10 }
 		}
@@ -9796,7 +9796,7 @@ country_event = {
 		end_crisis = yes
 		remove_global_flag = ongoing_prethoryn_invasion
 		set_global_flag = prethoryn_invasion_defeated
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "prethoryn_scourge_chain" }
 			end_event_chain = "prethoryn_scourge_chain"
 		}
@@ -9857,7 +9857,7 @@ country_event = {
 			end_crisis = yes
 			remove_global_flag = ongoing_prethoryn_invasion
 			set_global_flag = prethoryn_invasion_defeated
-			every_country = {
+			every_playable_country = {
 				limit = { has_event_chain = "prethoryn_scourge_chain" }
 				end_event_chain = "prethoryn_scourge_chain"
 			}
@@ -10541,7 +10541,7 @@ system_event = {
 		}
 		every_system_megastructure = {
 			limit = {
-				NOT = { mega_blokkats_wont_stripmine = yes }
+				mega_blokkats_wont_stripmine = no
 			}
 			remove_megastructure = THIS
 		}
@@ -10669,7 +10669,7 @@ fleet_event = { #this event is ran monthly on the mothership fleet
 				event_target:blokkat_country = {
 					spawn_blokkat_escort_fleet = yes
 					spawn_blokkat_harvesting_fleet = yes
-					every_country = {
+					every_playable_country = {
 						limit = { is_ai = no }
 						country_event = { id = giga_blokkat.1044 }
 					}
@@ -10889,7 +10889,7 @@ system_event = {
 		}
 		every_system_megastructure = {
 			limit = {
-				NOT = { mega_blokkats_wont_stripmine = yes }
+				mega_blokkats_wont_stripmine = no
 			}
 			remove_megastructure = THIS
 		}
@@ -11825,7 +11825,7 @@ country_event = {
 		NOT = {
 			any_galaxy_planet = {
 				is_colony = yes
-				owner = { is_country = ROOT }
+				is_owned_by = ROOT
 			}
 		}
 	}

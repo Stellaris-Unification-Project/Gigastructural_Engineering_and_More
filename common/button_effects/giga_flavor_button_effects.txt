@@ -146,12 +146,9 @@ giga_disco_lightshow = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = giga_disco_moon_setting
-					value = 0
-				}
-			}
+					value != 0 }
 		}
 	}
 	allow = { 
@@ -193,12 +190,9 @@ giga_disco_repro = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = giga_disco_moon_setting
-					value = 1
-				}
-			}
+					value != 1 }
 		}
 	}
 	allow = {
@@ -246,12 +240,9 @@ giga_disco_indoc = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = giga_disco_moon_setting
-					value = 2
-				}
-			}
+					value != 2 }
 		}
 	}
 	allow = {
@@ -298,12 +289,9 @@ giga_disco_nonight = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = giga_disco_moon_setting
-					value = 3
-				}
-			}
+					value != 3 }
 		}
 	}
 	allow = {
@@ -351,12 +339,9 @@ giga_disco_turn_off = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = giga_disco_moon_setting
-					value = 4
-				}
-			}
+					value != 4 }
 		}
 	}
 	allow = {
@@ -547,12 +532,9 @@ giga_acc_physics = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = acc_spec
-					value = 1
-				}
-			}
+					value != 1 }
 		}
 	}
 	allow = { hidden_trigger = { always = yes } }
@@ -597,12 +579,9 @@ giga_acc_dm = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = acc_spec
-					value = 2
-				}
-			}
+					value != 2 }
 		}
 	}
 	allow = {
@@ -649,12 +628,9 @@ giga_acc_qnm = {
 	potential = {
 		exists = from
 		event_target:giga_mega_manage_planet = {
-			NOT = {
-				check_variable = {
+			check_variable = {
 					which = acc_spec
-					value = 3
-				}
-			}
+					value != 3 }
 		}
 	}
 	allow = {

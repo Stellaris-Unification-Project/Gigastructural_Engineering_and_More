@@ -71,7 +71,7 @@ decision_maginot_anti_jump_on = {
 				every_neighbor_system = {
 					limit = {
 						exists = space_owner
-						space_owner = { is_same_empire = event_target:maginot_owner }
+						is_owned_by = event_target:maginot_owner
 					}
 					# Prevents jump drives
 					set_star_flag = maginot_anti_jump_star
@@ -90,7 +90,7 @@ decision_maginot_anti_jump_on = {
 						every_neighbor_system = {
 							limit = {
 								exists = space_owner
-								space_owner = { is_same_empire = event_target:maginot_owner }
+								is_owned_by = event_target:maginot_owner
 								NOT = { has_modifier = maginot_anti_jump_star_modifier }
 							}
 							# Prevents jump drives
@@ -163,7 +163,7 @@ decision_maginot_anti_jump_off = {
 				every_neighbor_system = {
 					limit = {
 						exists = space_owner
-						space_owner = { is_same_empire = event_target:maginot_owner }
+						is_owned_by = event_target:maginot_owner
 					}
 					# Prevents jump drives
 					remove_star_flag = maginot_anti_jump_star
@@ -176,7 +176,7 @@ decision_maginot_anti_jump_off = {
 						every_neighbor_system = {
 							limit = {
 								exists = space_owner
-								space_owner = { is_same_empire = event_target:maginot_owner }
+								is_owned_by = event_target:maginot_owner
 							}
 							# Prevents jump drives
 							remove_star_flag = maginot_anti_jump_star

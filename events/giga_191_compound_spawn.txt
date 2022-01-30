@@ -428,14 +428,14 @@ country_event = {
 				any_country = {
 					is_ai = yes
 					ehof_default_country = yes
-					any_system_within_border = { NOT = { cohesive_system = yes } }
+					any_system_within_border = { cohesive_system = no }
 				}
 			}
 			random_country = {
 				limit = {
 					is_ai = yes
 					ehof_default_country = yes
-					any_system_within_border = { NOT = { cohesive_system = yes } }
+					any_system_within_border = { cohesive_system = no }
 				}
 				country_event = { id = compound_spawn.002 days = 30 }
 			}
@@ -444,7 +444,7 @@ country_event = {
 			random_country = {
 				limit = {
 					ehof_default_country = yes
-					any_system_within_border = { NOT = { cohesive_system = yes } }
+					any_system_within_border = { cohesive_system = no }
 				}
 				country_event = { id = compound_spawn.002 days = 30 }
 			}
@@ -526,7 +526,7 @@ country_event = {
 		}
 		else = {
 			random_system_within_border = {
-				limit = { NOT = { cohesive_system = yes } }
+				limit = { cohesive_system = no }
 				save_event_target_as = compound_invade_here_plz
 			}
 		}

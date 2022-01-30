@@ -515,8 +515,7 @@ country_event = {
 								NOT = { any_system_planet = { habitable_planet = yes } }
 								NOT = { is_star_class = sc_black_hole }
 							}
-							random_system_planet = {
-								limit = { is_star = yes }
+							star = {
 								create_fallen_empire_fleet = yes
 								solar_system = {
 									spawn_megastructure = {
@@ -936,8 +935,7 @@ country_event = {
 				NOT = { any_system_planet = { habitable_planet = yes } }
 			}
 			create_fe_citadel = yes
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				change_pc = pc_k_star
 				create_fallen_empire_fleet = yes
 				solar_system = {
@@ -1116,8 +1114,7 @@ country_event = {
 				NOT = { any_system_planet = { habitable_planet = yes } }
 			}
 			create_fe_citadel = yes
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				change_pc = pc_black_hole
 				create_fallen_empire_fleet = yes
 				solar_system = {
@@ -1521,8 +1518,7 @@ country_event = {
 					limit = { is_star = no }
 					remove_planet = yes
 				}
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					create_fallen_empire_fleet = yes
 					change_pc = pc_m_star
 					solar_system = { #Make it a red Dwarf
@@ -1659,8 +1655,7 @@ country_event = {
 				has_no_non_gate_megastructure = yes
 				NOT = { any_system_planet = { habitable_planet = yes } } 
 			}
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				change_pc = pc_a_star
 				create_fallen_empire_fleet = yes
 				solar_system = {
@@ -1807,8 +1802,7 @@ country_event = {
 					set_asteroid_belt = {
 						radius = 0
 					}
-					random_system_planet = {
-						limit = { is_star = yes }
+					star = {
 						change_pc = pc_k_star
 						solar_system = {
 							set_star_class = sc_m
@@ -2238,7 +2232,7 @@ country_event = {
 		years = 50
 		modifier = {
 			factor = 0.5
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				fleet_power > 300000
 			}
@@ -2333,14 +2327,16 @@ country_event = {
 	}
 	
 	trigger = {
-		NOT = { has_global_flag = sleepers_awake_happened }
-		NOT = { has_global_flag = guardians_of_the_galaxy_happened }			
+		NOR = {
+			has_global_flag = sleepers_awake_happened
+			has_global_flag = guardians_of_the_galaxy_happened
+		}			
 		end_game_years_passed >= 0
 		has_ai_personality = fallen_empire_gamers
 		is_at_war = no
 		fleet_power > 40000
 		OR = {
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				fleet_power > 200000
 			}
@@ -2494,8 +2490,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 				NOT = { has_communications = root }
 			}
@@ -2672,7 +2667,7 @@ country_event = {
 			country_event = { id = giga_fallen_empire_megas.5012 }
 			country_event = { id = fallen_empires_awakening.2 days = 2 }
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 				NOT = { any_owned_planet = { has_planet_flag = gamer_world } }
@@ -2683,8 +2678,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 				NOT = { has_communications = root }
 			}
@@ -2855,7 +2849,7 @@ country_event = {
 					}
 				}
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_fallen_empire_moons.101 days = 30 random = 2 }
 			}
@@ -2875,7 +2869,7 @@ country_event = {
 			limit = { has_ethic = ethic_fanatic_spiritualist }
 
 			# Inform the player of how really screwed they might be
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_fallen_empire_moons.102 days = 60 }
 			}
@@ -4774,8 +4768,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 				NOT = { has_communications = root }
 			}
@@ -4937,7 +4930,7 @@ country_event = {
 				modifier = giga_pouchkinn_fe_disarray
 				days = -1
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_fallen_empire_misc.1043 days = 5 }
 			}
@@ -5120,7 +5113,7 @@ event = {
 						remove_planet_flag = has_megastructure
 					}
 				}
-				every_country = {
+				every_playable_country = {
 					limit = { is_ai = no }
 					country_event = { id = giga_fallen_empire_misc.1041 }
 				}
@@ -5181,7 +5174,7 @@ event = {
 					modifier = giga_pouchkinn_fe_disarray
 					days = -1
 				}
-				every_country = {
+				every_playable_country = {
 					limit = { is_ai = no }
 					country_event = { id = giga_fallen_empire_misc.1042 }
 				}
@@ -5226,7 +5219,7 @@ event = {
 					}
 				}
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_fallen_empire_misc.1044 }
 			}
@@ -5270,7 +5263,7 @@ event = {
 					}
 				}
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 				country_event = { id = giga_fallen_empire_misc.1045 }
 			}

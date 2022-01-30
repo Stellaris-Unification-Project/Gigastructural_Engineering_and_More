@@ -50,7 +50,7 @@ ehof_sm_forge_phase0 = {
 			}
 			custom_tooltip = {
 				fail_text = "requires_no_anomaly"
-				NOT = { has_anomaly = yes }
+				has_anomaly = no
 			}
 		}
 	}
@@ -62,7 +62,7 @@ ehof_sm_forge_phase0 = {
 			factor = 0.1
 			any_neighbor_system = {
 				exists = owner
-				NOT = { owner = { is_same_value = from } }
+				NOT = { is_owned_by = from }
 			}
 		}
 	}

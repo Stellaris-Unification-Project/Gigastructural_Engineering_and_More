@@ -485,7 +485,7 @@ decision_claim_system_megas = {
 							is_megastructure_type = war_planet_debris
 						}
 						owner = {
-							NOT = { is_country = ROOT.space_owner }
+							NOT = { is_same_empire = ROOT.space_owner }
 						}
 					}
 					set_owner = ROOT.space_owner

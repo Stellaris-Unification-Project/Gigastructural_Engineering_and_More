@@ -309,7 +309,7 @@ country_event = {
 		}
 		else_if = {
 			limit = { from = { is_country_type = creators } }
-			every_country = {
+			every_playable_country = {
 				limit = { has_event_chain = "compound_crisis_chain" }
 				if = {
 					limit = { NOT = { has_global_flag = sa_recently_rewarded } }
@@ -324,7 +324,7 @@ country_event = {
 			}
 		}
 		else = {
-			every_country = {
+			every_playable_country = {
 				limit = { has_event_chain = "compound_crisis_chain" }
 				add_event_chain_counter = {
 					event_chain = "compound_crisis_chain"
@@ -345,7 +345,7 @@ country_event = {
 	trigger = { is_country_type = compound_empire }
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "compound_crisis_chain" }
 				add_event_chain_counter = {
 				event_chain = "compound_crisis_chain"
@@ -1128,7 +1128,7 @@ planet_event = {
 		create_research_station = { owner = event_target:compound_country }
 
 		# Add counter
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "compound_crisis_chain" }
 			add_event_chain_counter = {
 				event_chain = "compound_crisis_chain"

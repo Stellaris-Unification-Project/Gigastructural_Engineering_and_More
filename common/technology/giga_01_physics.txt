@@ -137,9 +137,9 @@ giga_tech_tetradimensional_engineering = {
 		modifier = { factor = 1.25 research_leader = { area = physics has_trait = "leader_trait_expertise_field_manipulation" } }
 		modifier = { 
 			factor = 0
-			AND = {
-				NOT = { has_ascension_perk = ap_gigastructural_constructs }
-				NOT = { has_country_flag = blokkat_bureau_unlocked }
+			NOR = {
+				has_ascension_perk = ap_gigastructural_constructs 
+				has_country_flag = blokkat_bureau_unlocked 
 			}
 		}
 		modifier = {

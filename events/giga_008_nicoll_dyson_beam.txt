@@ -282,7 +282,7 @@ country_event = {
 								solar_system = {
 									ndb_can_target_system = yes
 									exists = owner
-									owner = { is_same_value = root }
+									is_owned_by = root
 								}
 							}
 						}
@@ -3604,7 +3604,7 @@ country_event = {
 						any_system_planet = {
 							is_capital = yes
 							exists = owner
-							owner = { is_same_value = root }
+							is_owned_by = root
 						}
 					}
 				}
@@ -4119,7 +4119,7 @@ planet_event = {
 				}
 				set_asteroid_belt = { radius = 0 }
 				every_fleet_in_system = {
-					limit = { owner = { NOT = { is_immune_to_giga_hyperweapon = yes } } } 
+					limit = { owner = { is_immune_to_giga_hyperweapon = no } } 
 					destroy_fleet = this 
 				}
 				giga_remove_system_debris = yes
@@ -4165,8 +4165,7 @@ planet_event = {
 				if = {
 					limit = {
 						NOR = {
-							is_planet_class = pc_habitat
-							is_planet_class = pc_ringworld_habitable
+							is_artificial = yes
 							is_planet_class = pc_gigaorbital_ring
 							is_planet_class = pc_habitable_gas_giant
 							is_planet_class = pc_interstellar_habitat
@@ -4346,7 +4345,7 @@ country_event = {
 
 					# System owner
 					else_if = {
-						limit = { prev = { exists = owner } is_same_value = prev.owner }
+						limit = { prev = { exists = owner } is_same_empire = prev.owner }
 						if = {
 							limit = { root = { has_country_flag = giga_ndb_damage } }
 							add_opinion_modifier = { who = root modifier = opinion_broke_our_planet_buildings }
@@ -4370,7 +4369,7 @@ country_event = {
 								AND = {
 									is_subject = yes
 									exists = overlord
-									overlord = { is_same_value = prev.owner }
+									overlord = { is_same_empire = prev.owner }
 								}
 							}
 						}
@@ -4391,7 +4390,7 @@ country_event = {
 								AND = {
 									is_subject = yes
 									exists = overlord
-									overlord = { is_same_value = prev.owner }
+									overlord = { is_same_empire = prev.owner }
 								}
 							}
 						}
@@ -4419,7 +4418,7 @@ country_event = {
 					exists = owner
 					owner = { is_country_type = swarm }
 				}
-				every_country = {
+				every_playable_country = {
 					limit = { has_event_chain = "prethoryn_scourge_chain" }
 					add_opinion_modifier = { who = this modifier = opinion_harmed_crisis }
 					add_event_chain_counter = {

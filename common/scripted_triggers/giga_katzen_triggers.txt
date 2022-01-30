@@ -45,7 +45,7 @@ kaiser_is_at_war = {
 
 kaiser_can_demand_system = {
 	NOR = {
-		any_system_planet = { is_capital = yes } #Can't demand if its a capital
+		is_capital_system = yes #Can't demand if its a capital
 		has_star_flag = kaiser_demands_system #Not already demanded
 	}
 	owner = {
@@ -60,11 +60,7 @@ kaiser_can_demand_system = {
 }
 
 katzen_is_genocidal = {
-	OR = {
-		has_valid_civic = civic_fanatic_purifiers
-		has_valid_civic = civic_hive_devouring_swarm
-		has_valid_civic = civic_machine_terminator
-	}
+	is_homicidal = yes
 }
 
 is_small_katzen_fleet = {

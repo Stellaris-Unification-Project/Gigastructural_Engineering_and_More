@@ -102,8 +102,8 @@ maginot_world_0 = {
 		modifier = { factor = 2.00	from = { has_monthly_income = { resource = influence value < 2 } } }
 
 		# Is this system a good location?
-		modifier = { factor = 500.0	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } } # border with someone else
-		modifier = { factor = 1.5	any_neighbor_system = { any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } } } # two jumps away
+		modifier = { factor = 500.0	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } } # border with someone else
+		modifier = { factor = 1.5	any_neighbor_system = { any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } } } # two jumps away
 		modifier = { factor = 10.0  starbase = { has_starbase_size >= starbase_starfortress } } # AI decided to fortify this system for some reason
 		# Big worlds make good fortresses, but small ones (moons protecting a larger world or something) work as well
 		modifier = { factor = 5.00	fromfrom.planet = { planet_size >= 25 } }

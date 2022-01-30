@@ -16,8 +16,8 @@ country_event = {
 	}
 
 	immediate = {
-		if = {		limit = { any_country = { is_ai = no check_variable = { which = ehof_phase value > 0 } } }	random_country = { limit = { is_ai = no check_variable = { which = ehof_phase value > 0 } }	save_discoverer = yes } }
-		else_if = {	limit = { any_country = { is_ai = no } }													random_country = { limit = { is_ai = no }													save_discoverer = yes } }
+		if = {		limit = { any_playable_country = { is_ai = no check_variable = { which = ehof_phase value > 0 } } }	random_playable_country = { limit = { is_ai = no check_variable = { which = ehof_phase value > 0 } }	save_discoverer = yes } }
+		else_if = {	limit = { any_playable_country = { is_ai = no } }													random_playable_country = { limit = { is_ai = no }													save_discoverer = yes } }
 		else_if = {	limit = { any_country = { check_variable = { which = ehof_phase value > 0 } } }				random_country = { limit = { check_variable = { which = ehof_phase value > 0 } }			save_discoverer = yes } }
 		else = {																								random_country = { limit = { ehof_default_country = yes }									save_discoverer = yes } }
 	}
@@ -281,7 +281,7 @@ country_event = {
 		}
 
 		# Contact players
-		every_country = {
+		every_playable_country = {
 			limit = { is_ai = no }
 			country_event = { id = annihilator_dialog.001 days = 2 }
 		}
@@ -299,13 +299,13 @@ country_event = {
 		# Ask player who has not declined, with an EHOF
 		if = {
 			limit = {
-				any_country = {
+				any_playable_country = {
 					is_ai = no
 					NOT = { has_country_flag = sa_picked_declined }
 					check_variable = { which = ehof_phase value > 0 }
 				}
 			}
-			random_country = {
+			random_playable_country = {
 				limit = {
 					is_ai = no
 					NOT = { has_country_flag = sa_picked_declined }
@@ -318,8 +318,8 @@ country_event = {
 
 		# Ask player who has not declined, without an EHOF
 		else_if = {
-			limit = { any_country = { is_ai = no NOT = { has_country_flag = sa_picked_declined } } }
-			random_country = {
+			limit = { any_playable_country = { is_ai = no NOT = { has_country_flag = sa_picked_declined } } }
+			random_playable_country = {
 				limit = { is_ai = no NOT = { has_country_flag = sa_picked_declined } }
 				save_discoverer = yes
 				country_event = { id = annihilator_dialog.005 }

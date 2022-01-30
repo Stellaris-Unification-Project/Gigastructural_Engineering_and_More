@@ -12,7 +12,7 @@ planet_event = {
 		# End compound event chain
 		remove_global_flag = compound_invasion_ongoing
 		set_global_flag = compound_destroyed
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = "compound_crisis_chain" }
 			end_event_chain = "compound_crisis_chain"
 			if = {

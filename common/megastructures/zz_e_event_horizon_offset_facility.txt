@@ -53,7 +53,7 @@ ehof_megastructure_phase0 = {
 			factor = 0.1
 			any_neighbor_system = {
 				exists = owner
-				NOT = { owner = { is_same_value = from } }
+				NOT = { is_owned_by = from }
 			}
 		}
 

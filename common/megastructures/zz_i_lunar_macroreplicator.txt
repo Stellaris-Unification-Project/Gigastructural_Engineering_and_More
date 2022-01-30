@@ -64,7 +64,7 @@ lunar_macroreplicator_0 = {
 		# Do we want the production
 
 		# Is this system a good location?
-		modifier = { factor = 0.75	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } }
+		modifier = { factor = 0.75	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } }
 
 		# Do we lean towards this from federation/ethic/civic?
 		modifier = { factor = 10	from = { has_country_flag = pangalactic_defense_league } }

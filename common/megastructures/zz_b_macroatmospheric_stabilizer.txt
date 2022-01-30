@@ -70,7 +70,7 @@ macro_stabilizer_0 = {
 		modifier = { factor = 1.25	chk_needs_exotic_gases_15 = yes }
 
 		# Is this system a good location?
-		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } }
+		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } }
 		modifier = { factor = 4		fromfrom.planet = { planet_size >= 30 } }
 		modifier = { factor = 2		fromfrom.planet = { planet_size >= 25 planet_size < 30 } }
 		modifier = { factor = 0		fromfrom.planet = { planet_size < 25 } }

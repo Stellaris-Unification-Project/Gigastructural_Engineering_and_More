@@ -300,7 +300,7 @@ substellar_compressor_5 = {
 						}
 					}
 					if = {
-						limit = { NOT = { starbase = { owner = { is_country = event_target:giga_eaw_country } } } }
+						limit = { NOT = { starbase = { is_owned_by = event_target:giga_eaw_country } } }
 						random_system_planet = {
 							limit = { has_planet_flag = giga_eaw_planet }
 							if = {

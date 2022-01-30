@@ -61,11 +61,7 @@ country_event = {
 	option = { trigger = { has_valid_civic = civic_machine_terminator }		name = EXTERMINATE }
 	option = {
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		name = "giga_paluush.003.a"
 		add_monthly_resource_mult = {
@@ -261,7 +257,7 @@ planet_event = {
 				limit = {
 					exists = owner
 					exists = orbit
-					owner = { is_same_value = root.from }
+					is_owned_by = root.from
 					orbit = { is_same_value = root }
 				}
 
@@ -697,11 +693,7 @@ country_event = {
 		name = "giga_katzenland.007.a"
 		custom_tooltip = "giga_katzenland.007.a.tooltip"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		add_monthly_resource_mult = {
 			resource = society_research
@@ -733,11 +725,7 @@ country_event = {
 	option = {
 		name = "giga_katzenland.007.b"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		add_monthly_resource_mult = {
 			resource = society_research
@@ -749,9 +737,7 @@ country_event = {
 	option = {
 		name = "giga_katzenland.007.c"
 		trigger = {
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_machine_terminator
+			is_homicidal = yes
 		}
 		add_monthly_resource_mult = {
 			resource = society_research
@@ -870,12 +856,9 @@ fleet_event = {
 					limit = {
 						has_country_flag = flusion_katzens_nuked
 						OR = {
-							has_ethic = ethic_militarist
-							has_ethic = ethic_fanatic_militarist
+							is_militarist = yes
 							has_ethic = ethic_fanatic_xenophobe
-							has_valid_civic = civic_fanatic_purifiers
-							has_valid_civic = civic_hive_devouring_swarm
-							has_valid_civic = civic_machine_terminator
+							is_homicidal = yes
 						}
 					}
 					country_event = { id = giga_flusion.005 days = 60 random = 10 } #Reverse-engineer Katzen nuking
@@ -1167,11 +1150,7 @@ country_event = {
 	immediate = {
 		if = {
 			limit = { #50% chance of katzen nuke if not genocidal
-				NOR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = no
 			}
 			random_list = {
 				70 = {
@@ -1182,11 +1161,7 @@ country_event = {
 		}
 		else_if = { #Katzens always nuke if genocidal
 			limit = {
-				OR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 			}
 			country_event = { id = giga_flusion.004 }
 		}
@@ -1300,12 +1275,9 @@ country_event = {
 			if = {
 				limit = {
 					OR = {
-						has_ethic = ethic_militarist
-						has_ethic = ethic_fanatic_militarist
+						is_militarist = yes
 						has_ethic = ethic_fanatic_xenophobe
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_machine_terminator
+						is_homicidal = yes
 					}
 				}
 				country_event = { id = giga_flusion.005 days = 60 random = 10 } #Reverse-engineer Katzen nuking
@@ -1466,14 +1438,12 @@ planet_event = {
 		every_country = { #Apply opinion modifiers
 			limit = {
 				NOT = { is_in_federation_with = from }
-				NOT = { is_subject = yes }
+				is_subject = no
 				NOT = { has_ethic = ethic_fanatic_xenophobe } #Xenophobes don't care
 				ehof_default_country = yes
 				NOT = { has_country_flag = planet_got_katzenland }
 				NOR = { #Genocidal empires don't care
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 					event_target:empire_got_katzenland = { has_valid_civic = civic_fanatic_purifiers }
 					event_target:empire_got_katzenland = { has_valid_civic = civic_hive_devouring_swarm }
 					event_target:empire_got_katzenland = { has_valid_civic = civic_machine_terminator }
@@ -1664,8 +1634,10 @@ planet_event = {
 	}
 
 	trigger = {
-		NOT = { has_global_flag = meopa_spawned_as_fe }
-		NOT = { has_global_flag = warmoon_disabled }
+		NOR = {
+			has_global_flag = meopa_spawned_as_fe
+			has_global_flag = warmoon_disabled
+		}
 		solar_system = {
 			exists = owner
 			owner = { ehof_default_country = yes }
@@ -1907,9 +1879,7 @@ country_event = {
 		name = "giga_flusion.320.a" #Contact them
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_country_flag = hostile_to_flusion
 			}
 		}
@@ -2512,12 +2482,9 @@ country_event = { #Nuclear War
 			if = {
 				limit = {
 					OR = {
-						has_ethic = ethic_militarist
-						has_ethic = ethic_fanatic_militarist
+						is_militarist = yes
 						has_ethic = ethic_fanatic_xenophobe
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_machine_terminator
+						is_homicidal = yes
 					}
 				}
 				country_event = { id = giga_flusion.005 days = 60 random = 10 } #Reverse-engineer Katzen nuking
@@ -2754,22 +2721,14 @@ country_event = {
 	option = { #Yay!
 		name = "giga_flusion.401.a"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 	}
 
 	option = { #Nay!
 		name = "giga_flusion.401.b"
 		trigger = {
-			OR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = yes
 		}
 	}
 }
@@ -2915,11 +2874,7 @@ ship_event = {
 		name = "giga_flusion.405.a"
 		trigger = {
 			owner = {
-				NOR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = no
 			}
 		}
 	}
@@ -2928,11 +2883,7 @@ ship_event = {
 		name = "giga_flusion.405.b"
 		trigger = {
 			owner = {
-				OR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 			}
 		}
 	}

@@ -10,7 +10,7 @@ planet_event = {
 
 	trigger = {
 		has_planet_flag = giga_maginot_world
-		NOT = { is_giga_maginot_world = yes }
+		is_giga_maginot_world = no
 	}
 
 	immediate = {
@@ -468,8 +468,7 @@ planet_event = {
 						NOT = { is_same_value = event_target:maginot_destroyer }
 						OR = {
 							is_country_type = default
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
+							is_fallen_empire = yes
 						}
 					}
 				}

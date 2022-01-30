@@ -37,8 +37,8 @@ asteroid_artillery_0 = {
 		weight = 100	# Default = 100
 
 		# Is this system a good location?
-		modifier = { factor = 0.1	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } }
-		modifier = { factor = 0.5	any_neighbor_system = { any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } } }
+		modifier = { factor = 0.1	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } }
+		modifier = { factor = 0.5	any_neighbor_system = { any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } } }
 
 		modifier = { factor = 0.00 from = { has_country_flag = has_recently_built_asteroid_artillery } }
 

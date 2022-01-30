@@ -57,7 +57,7 @@ asteroid_artillery = {
 	}
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 7
+	icon = ship_size_military_32
 	combat_disengage_chance = 0.0
 	possible_construction = { always = no }
 	class = shipclass_military_station
@@ -620,7 +620,7 @@ Pillar = {
 	section_slots = { "mid" = { locator = "attach_ship" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 10
+	icon = ship_size_colonizer
 
 	is_civilian = yes
 	is_designable = no

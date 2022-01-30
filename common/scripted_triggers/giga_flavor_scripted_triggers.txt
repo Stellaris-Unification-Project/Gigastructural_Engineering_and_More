@@ -2,8 +2,10 @@ is_valid_yggdrasil_food_beggar = {
 	is_ai = yes
 	is_country_type = default
 	has_communications = ROOT
-	NOT = { is_rival = ROOT }
-	NOT = { is_at_war_with = ROOT }
+	NOR = {
+		is_rival = ROOT
+		is_at_war_with = ROOT
+	}
 	NOT = { has_modifier = yggdrasil_food_share_recipient }
 	opinion = {
 		who = ROOT
@@ -18,9 +20,7 @@ is_valid_yggdrasil_food_beggar = {
 		}
 		any_owned_megastructure = { is_megastructure_type = yggdrasil_orchid_3 }
 		any_owned_megastructure = { is_megastructure_type = yggdrasil_orchid_restored }
-		has_valid_civic = civic_fanatic_purifiers
-		has_valid_civic = civic_hive_devouring_swarm
-		has_valid_civic = civic_machine_terminator
+		is_homicidal = yes
 	}
 }
 

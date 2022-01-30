@@ -76,7 +76,7 @@ macro_test_site_0 = {
 		modifier = { factor = 1.25	chk_needs_engineering_15 = yes }
 
 		# Is this system a good location?
-		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } }
+		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } }
 
 		# Do we lean towards this from federation/ethic/civic?
 		modifier = { factor = 2.00	from = { has_federation = yes federation = { has_federation_type = research_federation } } }

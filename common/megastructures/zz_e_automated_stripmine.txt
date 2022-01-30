@@ -86,7 +86,7 @@ automated_stripmine_0 = {
 		modifier = { factor = 1.25	chk_needs_minerals_15 = yes }
 
 		# Is this system a good location?
-		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { owner = { is_same_value = from } } } }
+		modifier = { factor = 0.5	any_neighbor_system = { exists = owner NOT = { is_owned_by = from } } }
 		modifier = { factor = 2.50	fromfrom.planet = { planet_size > 25 } }
 		modifier = { factor = 2.00	fromfrom.planet = { planet_size <= 25 planet_size > 20 } }
 		modifier = { factor = 1.50	fromfrom.planet = { planet_size <= 20 planet_size > 15 } }

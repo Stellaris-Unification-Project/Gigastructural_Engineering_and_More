@@ -218,20 +218,20 @@ giga_page_presets_user = { potential = { always = no } allow = { always = no } e
 giga_presets_01 = { potential = { always = no } allow = { always = no } effect = {} }
 
 giga_presets_user = {
- 	potential = { exists = from from = { has_country_flag = giga_menu_page_presets custom_tooltip = { fail_text = "must_have_user_preset_mod" NOT = { has_giga_preset_mod = yes } } } }
+ 	potential = { exists = from from = { has_country_flag = giga_menu_page_presets custom_tooltip = { fail_text = "must_have_user_preset_mod" has_giga_preset_mod = no } } }
  	allow = { custom_tooltip = { fail_text = "must_not_have_started_game" NOT = { has_global_flag = giga_game_started } }  }
  	effect = { hidden_effect = { from = { country_event = { id = giga_preset.1 } } } }
 }
 
 giga_page_presets_user = {
- 	potential = { exists = from from = { has_country_flag = giga_menu_page_presets custom_tooltip = { fail_text = "must_have_user_preset_mod" NOT = { has_giga_preset_mod = yes } } } }
+ 	potential = { exists = from from = { has_country_flag = giga_menu_page_presets custom_tooltip = { fail_text = "must_have_user_preset_mod" has_giga_preset_mod = no } } }
  	allow = { always = yes }
  	effect = {}
 }
 
 giga_presets_01 = {
  	potential = { exists = from from = { has_country_flag = giga_menu_page_presets } }
- 	allow = { custom_tooltip = { fail_text = "must_not_have_started_game" NOT = { has_global_flag = giga_game_started } } custom_tooltip = { fail_text = "must_have_user_preset_mod" NOT = { has_giga_preset_mod = yes } } }
+ 	allow = { custom_tooltip = { fail_text = "must_not_have_started_game" NOT = { has_global_flag = giga_game_started } } custom_tooltip = { fail_text = "must_have_user_preset_mod" has_giga_preset_mod = no } }
  	effect = { hidden_effect = { from = { country_event = { id = giga_preset.1 } } } }
 }
 
@@ -3557,8 +3557,10 @@ giga_vr_base = {
 		exists = from
 		from = {
 			has_country_flag = giga_menu_page_01
-			NOT = { has_global_flag = giga_virtual_industry }
-			NOT = { has_global_flag = virtual_reality_disabled }
+			NOR = {
+				has_global_flag = giga_virtual_industry
+				has_global_flag = virtual_reality_disabled
+			}
 		}
 	}
 	allow = { NOT = { has_global_flag = matrioshka_brain_disabled has_global_flag = giga_virtual_industry } }

@@ -145,7 +145,7 @@ war_system_2 = {
 			limit = {
 				any_owned_ship = { is_ship_size = giga_planet_behemoth }
 				exists = owner
-				owner = { is_same_value = root.from }
+				is_owned_by = root.from
 			}
 
 			if = {
@@ -165,7 +165,7 @@ war_system_2 = {
 				limit = {
 					any_owned_ship = { is_ship_size = giga_massive_planet }
 					exists = owner
-					owner = { is_same_value = root.from }
+					is_owned_by = root.from
 				}
 
 				if = {
@@ -234,7 +234,7 @@ war_system_3 = {
 				limit = {
 					any_owned_ship = { is_ship_size = giga_massive_planet }
 					exists = owner
-					owner = { is_same_value = root.from }
+					is_owned_by = root.from
 				}
 
 				if = {
@@ -303,7 +303,7 @@ war_system_4 = {
 				limit = {
 					any_owned_ship = { is_ship_size = giga_planet_behemoth }
 					exists = owner
-					owner = { is_same_value = root.from }
+					is_owned_by = root.from
 				}
 
 				if = {
@@ -373,7 +373,7 @@ war_system_5 = {
 			limit = {
 				any_owned_ship = { is_ship_size = giga_massive_planet }
 				exists = owner
-				owner = { is_same_value = root.from }
+				is_owned_by = root.from
 			}
 
 			if = {
@@ -392,7 +392,7 @@ war_system_5 = {
 			limit = {
 				any_owned_ship = { is_ship_size = giga_planet_behemoth }
 				exists = owner
-				owner = { is_same_value = root.from }
+				is_owned_by = root.from
 			}
 
 			if = {
@@ -461,8 +461,7 @@ war_system_5 = {
 								is_at_war_with = root.from
 								is_ai = yes
 								NOR = {
-									is_country_type = fallen_empire
-									is_country_type = awakened_fallen_empire
+									is_fallen_empire = yes
 									has_civic = civic_machine_terminator
 									has_civic = civic_hive_devouring_swarm
 									has_civic = civic_fanatic_purifiers
@@ -476,8 +475,7 @@ war_system_5 = {
 								is_at_war_with = root.from
 								is_ai = yes
 								NOR = {
-									is_country_type = fallen_empire
-									is_country_type = awakened_fallen_empire
+									is_fallen_empire = yes
 									has_civic = civic_machine_terminator
 									has_civic = civic_hive_devouring_swarm
 									has_civic = civic_fanatic_purifiers

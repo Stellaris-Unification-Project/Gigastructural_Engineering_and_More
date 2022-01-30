@@ -822,7 +822,7 @@ event = {
 				}
 				owner = { #owner is not the space owner
 					NOT = {
-						is_same_value = PREV.planet.solar_system.space_owner
+						is_same_empire = PREV.planet.solar_system.space_owner
 					}
 				}
 			}
@@ -838,7 +838,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			has_technology = giga_tech_asteroid_artillery
 			is_country_type = default
 		}
@@ -846,7 +846,7 @@ event = {
 	}
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				has_technology = giga_tech_asteroid_artillery
@@ -855,7 +855,7 @@ event = {
 		}
 		if = {
 			limit = {
-				any_country = {
+				any_playable_country = {
 					is_country_type = default
 					is_ai = yes
 					NOT = { has_technology = giga_tech_asteroid_artillery }
@@ -883,7 +883,7 @@ event = {
 					}
 				}
 			}
-			random_country = {
+			random_playable_country = {
 				limit = {
 					is_country_type = default
 					is_ai = yes

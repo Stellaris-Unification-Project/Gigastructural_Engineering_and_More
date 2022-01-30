@@ -127,10 +127,10 @@ can_orbital_bombard = {
 		AND = {
     	    from.controller = {
     	        is_country_type = faction
-    	        NOT = { is_same_value = root.owner }
+    	        NOT = { is_same_empire = root.owner }
     	    }
     	    from.owner = {
-    	        is_same_value = root.owner
+    	        is_same_empire = root.owner
     	    }
 		}
 	}

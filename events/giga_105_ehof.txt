@@ -12,7 +12,7 @@ ship_event = {
 	trigger = {
 		exists = owner
 		exists = solar_system
-		owner = { is_same_value = solar_system.starbase.owner }
+		is_owned_by = solar_system.starbase.owner
 		solar_system = { has_star_flag = ehof_megastructure_system@root.owner }
 		fleet = { can_use_ehof = yes }
 	}
@@ -62,7 +62,7 @@ fleet_event = {
 	trigger = {
 		exists = owner
 		exists = solar_system
-		owner = { is_same_value = solar_system.starbase.owner }
+		is_owned_by = solar_system.starbase.owner
 		solar_system = { has_star_flag = ehof_megastructure_system@root.owner }
 		can_use_ehof = yes
 	}
@@ -204,7 +204,7 @@ country_event = {
 			count_owned_megastructure = { limit = { is_any_ehof = yes } count > 1 }
 			AND = {
 				has_any_ehof = no
-				NOT = { check_variable = { which = ehof_phase value = 0 } }
+				check_variable = { which = ehof_phase value != 0 }
 			}
 			AND = {
 				count_owned_megastructure = { limit = { is_any_ehof = yes } count = 1 }
@@ -217,25 +217,25 @@ country_event = {
 						has_megastructure = ehof_megastructure_phase1_activating
 						has_megastructure = ehof_megastructure_phase1_active
 						has_megastructure = ehof_megastructure_phase1_idle
-						NOT = { check_variable = { which = ehof_phase value = 1 } }
+						check_variable = { which = ehof_phase value != 1 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase2_activating
 						has_megastructure = ehof_megastructure_phase2_active
 						has_megastructure = ehof_megastructure_phase2_idle
-						NOT = { check_variable = { which = ehof_phase value = 2 } }
+						check_variable = { which = ehof_phase value != 2 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase3_activating
 						has_megastructure = ehof_megastructure_phase3_active
 						has_megastructure = ehof_megastructure_phase3_idle
-						NOT = { check_variable = { which = ehof_phase value = 3 } }
+						check_variable = { which = ehof_phase value != 3 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase4_activating
 						has_megastructure = ehof_megastructure_phase4_active
 						has_megastructure = ehof_megastructure_phase4_idle
-						NOT = { check_variable = { which = ehof_phase value = 4 } }
+						check_variable = { which = ehof_phase value != 4 }
 					}
 				}
 			}
@@ -247,7 +247,7 @@ country_event = {
 		if = {
 			limit = {
 				has_any_ehof = no
-				NOT = { check_variable = { which = ehof_phase value = 0 } }
+				check_variable = { which = ehof_phase value != 0 }
 			}
 			set_variable = { which = ehof_phase value = 0 }
 			remove_country_flag = ehof_destination_picked
@@ -282,25 +282,25 @@ country_event = {
 						has_megastructure = ehof_megastructure_phase1_activating
 						has_megastructure = ehof_megastructure_phase1_active
 						has_megastructure = ehof_megastructure_phase1_idle
-						NOT = { check_variable = { which = ehof_phase value = 1 } }
+						check_variable = { which = ehof_phase value != 1 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase2_activating
 						has_megastructure = ehof_megastructure_phase2_active
 						has_megastructure = ehof_megastructure_phase2_idle
-						NOT = { check_variable = { which = ehof_phase value = 2 } }
+						check_variable = { which = ehof_phase value != 2 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase3_activating
 						has_megastructure = ehof_megastructure_phase3_active
 						has_megastructure = ehof_megastructure_phase3_idle
-						NOT = { check_variable = { which = ehof_phase value = 3 } }
+						check_variable = { which = ehof_phase value != 3 }
 					}
 					AND = {
 						has_megastructure = ehof_megastructure_phase4_activating
 						has_megastructure = ehof_megastructure_phase4_active
 						has_megastructure = ehof_megastructure_phase4_idle
-						NOT = { check_variable = { which = ehof_phase value = 4 } }
+						check_variable = { which = ehof_phase value != 4 }
 					}
 				}
 			}
@@ -319,7 +319,7 @@ country_event = {
 					has_megastructure = ehof_megastructure_phase1_activating
 					has_megastructure = ehof_megastructure_phase1_active
 					has_megastructure = ehof_megastructure_phase1_idle
-					NOT = { check_variable = { which = ehof_phase value = 1 } }
+					check_variable = { which = ehof_phase value != 1 }
 				}
 				set_variable = { which = ehof_phase value = 1 }
 			}
@@ -328,7 +328,7 @@ country_event = {
 					has_megastructure = ehof_megastructure_phase2_activating
 					has_megastructure = ehof_megastructure_phase2_active
 					has_megastructure = ehof_megastructure_phase2_idle
-					NOT = { check_variable = { which = ehof_phase value = 2 } }
+					check_variable = { which = ehof_phase value != 2 }
 				}
 				set_variable = { which = ehof_phase value = 2 }
 			}
@@ -337,7 +337,7 @@ country_event = {
 					has_megastructure = ehof_megastructure_phase3_activating
 					has_megastructure = ehof_megastructure_phase3_active
 					has_megastructure = ehof_megastructure_phase3_idle
-					NOT = { check_variable = { which = ehof_phase value = 3 } }
+					check_variable = { which = ehof_phase value != 3 }
 				}
 				set_variable = { which = ehof_phase value = 3 }
 			}
@@ -346,7 +346,7 @@ country_event = {
 					has_megastructure = ehof_megastructure_phase4_activating
 					has_megastructure = ehof_megastructure_phase4_active
 					has_megastructure = ehof_megastructure_phase4_idle
-					NOT = { check_variable = { which = ehof_phase value = 4 } }
+					check_variable = { which = ehof_phase value != 4 }
 				}
 				set_variable = { which = ehof_phase value = 4 }
 			}
@@ -839,7 +839,7 @@ country_event = {
 			any_fleet_in_system = {
 				can_use_ehof = yes
 				exists = owner
-				owner = { is_same_value = root }
+				is_owned_by = root
 			}
 		}
 		NOR = {
@@ -853,7 +853,7 @@ country_event = {
 	}
 
 	immediate = {
-	    ehof_recount_ships = yes
+	    ehof_recount_fleet_in_system = yes
 		set_country_flag = ehof_can_activate
 		if = {
 			limit = {
@@ -881,7 +881,7 @@ country_event = {
 				any_fleet_in_system = {
 					can_use_ehof = yes
 					exists = owner
-					owner = { is_same_value = root }
+					is_owned_by = root
 				}
 			}
 		}
@@ -953,8 +953,10 @@ country_event = {
 			}
 			AND = {
 				has_megastructure = ehof_megastructure_phase2_idle
-				NOT = { has_country_flag = ehof_restored }
-				NOT = { has_country_flag = ehof_p2_first_time }
+				NOR = {
+					has_country_flag = ehof_restored
+					has_country_flag = ehof_p2_first_time
+				}
 			}
 			AND = {
 				has_megastructure = ehof_megastructure_phase1_idle
@@ -1194,7 +1196,7 @@ country_event = {
 	immediate = {
 	    log = idle
 
-	    ehof_recount_ships = yes
+	    ehof_recount_fleet_in_system = yes
 
 		remove_country_flag = ehof_on_cooldown
 		ehof_set_to_idle = yes

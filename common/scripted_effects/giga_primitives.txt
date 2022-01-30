@@ -379,7 +379,7 @@ generate_flusion_primitives_on_planet = {
 	while = {
 		count = 6
 		create_pop = {
-			species = last_created
+			species = last_created_species
 		}
 	}
 	while = {
@@ -493,7 +493,7 @@ create_paluush_primitive_empire = {
 setup_paluush_primitive_planet = {
 	set_owner = last_created_country
 	set_capital = yes
-	while = { count = 25 create_pop = { species = last_created } }
+	while = { count = 25 create_pop = { species = last_created_species } }
 	add_building = building_giga_paluush_homes
 	add_building = building_giga_paluush_homes
 	add_building = building_giga_paluush_homes
@@ -507,7 +507,7 @@ setup_paluush_primitive_planet = {
 setup_paluush_primitive_planet_no_buildings = {
 	set_owner = last_created_country
 	set_capital = yes
-	while = { count = 20 create_pop = { species = last_created } }
+	while = { count = 20 create_pop = { species = last_created_species } }
 	add_building = building_primitive_capital
 	remove_building = building_colony_shelter
 	while = { count = 2 add_deposit = d_dense_jungle }
@@ -678,7 +678,7 @@ generate_alderson_01_primitives_on_planet = {
 	}
 	set_owner = last_created_country
 	set_capital = yes
-	while = { count = 24 create_pop = { species = last_created } }
+	while = { count = 24 create_pop = { species = last_created_species } }
 	add_building = building_primitive_farm
 	add_building = building_primitive_factory
 	add_building = building_primitive_mine
@@ -754,7 +754,7 @@ generate_alderson_02_primitives_on_planet = {
 	}
 	set_owner = last_created_country
 	set_capital = yes
-	while = { count = 24 create_pop = { species = last_created } }
+	while = { count = 24 create_pop = { species = last_created_species } }
 	add_building = building_primitive_farm
 	add_building = building_primitive_factory
 	add_building = building_primitive_mine

@@ -72,7 +72,7 @@ country_event = {
 		exists = event_target:birchworld
 		event_target:birchworld = {
 			exists = owner
-			owner = { is_same_empire = root }
+			is_owned_by = root
 		}
 		has_edict = giga_migrate_birch_world
 		NOT = { has_country_flag = birchworld_migrated }

@@ -344,8 +344,10 @@ building_ehof_sm_forge_1 = {
 	prerequisites = { tech_ehof_sentient_tier_1 }
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_relaxed_basic_income_check = yes
 	}
 
@@ -1370,8 +1372,10 @@ building_giga_institute_1 = {
 
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		exists = owner
 		owner = { is_regular_empire = yes }
 	}
@@ -1465,8 +1469,10 @@ building_giga_institute_2 = {
     can_build = no
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		exists = owner
 		owner = { is_regular_empire = yes }
 	}
@@ -2291,8 +2297,10 @@ building_negative_mass_factory_1 = {
 	}
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_relaxed_basic_income_check = yes
 	}
 
@@ -2344,8 +2352,10 @@ building_negative_mass_factory_2 = {
 	}
 
 	potential = {
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+		}
 		building_relaxed_basic_income_check = yes
 	}
 

@@ -182,14 +182,14 @@ blokkat_harvest_system = {
 		}
 		set_global_flag = blokkats_ate_first_system
 		save_global_event_target_as = blokkat_first_stripmined_system
-		every_country = {
+		every_playable_country = {
 			limit = {
 				has_event_chain = "blokkat_chain"
 			}
 			country_event = { id = giga_blokkat.1020 days = 2 }
 		}
 	}
-	every_country = {
+	every_playable_country = {
 		limit = {
 			has_event_chain = "blokkat_chain"
 		}
@@ -203,7 +203,7 @@ blokkat_harvest_system = {
 		limit = {
 			is_star = no
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				has_event_chain = "blokkat_chain"
 			}
@@ -279,7 +279,7 @@ blokkat_harvest_system = {
 	system_event = { id = giga_blokkat.2003 days = 1 }
 	every_system_megastructure = {
 		limit = {
-			NOT = { mega_blokkats_wont_stripmine = yes }
+			mega_blokkats_wont_stripmine = no
 		}
 		set_owner = event_target:blokkat_country
 	}
@@ -303,7 +303,7 @@ blokkat_harvest_system = {
 blokkat_increment_system_ships = {
 	every_ship_in_system = {
 		limit = { owner = { NOT = { is_country_type = blokkat_stripminers } } }
-		every_country = {
+		every_playable_country = {
 			limit = { has_event_chain = blokkat_chain }
 			add_event_chain_counter = {
 				event_chain = blokkat_chain
@@ -356,14 +356,14 @@ blokkat_harvest_system_mothership = {
 		}
 		set_global_flag = blokkats_ate_first_system
 		save_global_event_target_as = blokkat_first_stripmined_system
-		every_country = {
+		every_playable_country = {
 			limit = {
 				has_event_chain = "blokkat_chain"
 			}
 			country_event = { id = giga_blokkat.1020 days = 2 }
 		}
 	}
-	every_country = {
+	every_playable_country = {
 		limit = {
 			has_event_chain = "blokkat_chain"
 		}
@@ -377,7 +377,7 @@ blokkat_harvest_system_mothership = {
 		limit = {
 			is_star = no
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				has_event_chain = "blokkat_chain"
 			}
@@ -451,7 +451,7 @@ blokkat_harvest_system_mothership = {
 	}
 	every_system_megastructure = {
 		limit = {
-			NOT = { mega_blokkats_wont_stripmine = yes }
+			mega_blokkats_wont_stripmine = no
 		}
 		set_owner = event_target:blokkat_country
 	}
